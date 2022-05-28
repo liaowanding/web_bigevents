@@ -1,0 +1,67 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /*当前目录为css目录，需要通过../翻到assets目录*/
+    /* 背景图不平铺并且居中 */
+    background: url('../images/login_bg.jpg') no-repeat center;
+    /* 背景图片的填充模式 */
+    background-size: cover;
+}
+
+.loginAndRegBox {
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    /* 添加绝对定位，并使用translate使其left和top移动自身宽高的百分之五十，使元素居中对齐 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-box {
+    /* 只设置高度，宽度与父亲一样宽，并设置背景图不平铺并且居中 */
+    height: 60px;
+    background: url('../images/login_title.png') no-repeat center;
+}
+
+.reg-box {
+    /* 去登录按钮默认隐藏 */
+    display: none;
+}
+
+.layui-form {
+    /* 为表单添加padding使里面的密码框 账号框距离表单左右有间距 */
+    padding: 0 30px;
+}
+
+.links {
+    /* 使用css的flex布局，使注册按钮贴右对齐  */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links a {
+    font-size: 12px;
+}
+
+.layui-form-item {
+    /* 为密码框和账号框的字体图标的父元素添加相对定位 为字体图标添加绝对定位 */
+    position: relative;
+}
+
+.layui-icon {
+    /* 为字体图片添加绝对定位 */
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.layui-form .layui-input {
+    /* 为密码框和账号框添加padding，防止框里的文字与字体图标重叠 */
+    /* 因为权重的问题，所以需要添加.layui-form */
+    padding-left: 32px;
+}
