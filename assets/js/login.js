@@ -51,26 +51,6 @@ $(function() { //入口函数
 
 
 
-
-    //--------------------------------------------
-    //发起jQuery的get post ajax请求前会先调用$.ajaxPrefilter函数，其中options是调用Ajax时传递的配置对象
-    $.ajaxPrefilter(function(options) {
-
-        console.log(options.url)
-        options.url = 'http://www.liulongbin.top:3008/' + options.url //拼接一个根路径，以后每次发起请求时就不用写根路径了
-    })
-
-
-
-
-
-
-
-
-
-
-
-
     //-----------------------------------------
 
     var layer = layui.layer //使用layui的提示弹出层

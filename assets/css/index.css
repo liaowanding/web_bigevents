@@ -1,0 +1,69 @@
+/* 后台页面的css文件 */
+
+.layui-footer {
+    text-align: center;
+    font-size: 12px;
+    /* 设置字体的粗细 */
+    font-weight: 600;
+    color: #000000;
+}
+
+.iconfont,
+.layui-icon {
+    /* 凡是字体图标都有iconfont和layui-icon公共类，所以可以给该类添加边距 */
+    /* layui-icon是layui的字体图标，iconfont是另外的第三方字体图标 */
+    margin-right: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.layui-body {
+    /* 将右侧内容区域超出隐藏，这样就不会有滚动条了，只留下了页面的滚动条 */
+    overflow: hidden;
+}
+
+a {
+    /* 停止a链接css的transition动画，因为权重不够，需要使用！mportant */
+    transition: none !important;
+}
+
+.userinfo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 12px;
+    /* 禁止内容被选中 */
+    user-select: none;
+}
+
+.layui-side-scroll .userinfo {
+    width: 100%;
+    border-bottom: 1px solid #282B33;
+}
+
+.layui-nav-img {
+    /* 图片头像*/
+    width: 40px;
+    height: 40px;
+}
+
+.text-avatar {
+    /* 文本头像 */
+    display: inline-block;
+    background-color: #008688;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    /* 添加相对定位使其与图片头像处于一个水平线 */
+    position: relative;
+    top: 4px;
+    font-size: 20px;
+    color: #fff;
+    /* 使文字头像与用户名之间增加间距 */
+    margin-right: 10px;
+}
