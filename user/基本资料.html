@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入layui的css样式 -->
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <!-- 引入自己的css样式 -->
+    <link rel="stylesheet" href="../assets/css/jibenzhiliao.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">修改用户信息</div>
+        <div class="layui-card-body">
+            <!-- form表单区域 -->
+            <!-- 为表单添加layui-filter属性，通过该属性的值为该表单快速赋值 -->
+            <form class="layui-form" layui-filter="formUserInfo">
+                <!-- 因为不希望用户看到id，所以使用隐藏input框，与普通input框没什么区别，只是看不到 -->
+                <input type="hidden" name="id">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">登录名称</label>
+                    <div class="layui-input-block">
+                        <!-- readonly属性可以使input不能输入内容(不能修改) ,并将name属性的值改为username-->
+                        <input type="text" name="username" required lay-verify="required" placeholder="请输入登录名称" autocomplete="off" class="layui-input" readonly>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户昵称</label>
+                    <div class="layui-input-block">
+                        <!-- 将name属性值修改为nickname -->
+                        <!-- 该input使用两个验证规则，required验证规则和nickname自定义验证规则 -->
+                        <input type="text" name="nickname" required lay-verify="required|nickname" placeholder="请输入用户昵称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户邮箱</label>
+                    <div class="layui-input-block">
+                        <!-- 将name属性值修改为email -->
+                        <!-- 该input使用两个验证规则，required验证规则和email验证规则 -->
+                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入用户邮箱" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo" id="btnAmend">提交修改</button>
+                        <button type="reset" class="layui-btn layui-btn-primary" id="btnReset">重置</button>
+                    </div>
+                </div>
+            </form>
+            <!-- form表单区域 -->
+        </div>
+    </div>
+</body>
+<!-- 引入layui的js 为了使用layui的表单验证方法-->
+<script src="../assets/lib/layui/layui.all.js"></script>
+<!-- 引入jquery的js -->
+<script src="../assets/lib/jquery.js"></script>
+<!-- 该js文件怎么拼接请求根路径和token的验证 -->
+<script src="../assets/js/baseAPI.js"></script>
+<!-- 引入自己的js -->
+<script src="../assets/js/user/user_info.js"></script>
+
+</html>
