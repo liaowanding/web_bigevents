@@ -12,7 +12,7 @@
      }
      //因为jQuery发起请求前ajaxPrefilter函数会拿到发起请求时的配置对象，为配置对象挂载complete回调函数，与在ajax挂载complete回调是一样的
      options.complete = function(res) { //这个res是xhr对象，不论请求成功或失败都会调用该函数
-         console.log(res);
+         // console.log(res);
          if (res.responseJSON.code == 1 && res.responseJSON.message == "身份认证失败！") {
              localStorage.removeItem('token')
              alert('xxxxxxxx')

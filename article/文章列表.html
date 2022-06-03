@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+<link rel="stylesheet" href="../assets/css/article/文章列表.css">
+<script src="../assets/lib/template-web.js"></script>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <!-- 文章筛选区 -->
+            <form class="layui-form" id="form-ser">
+                <!-- layui-inline类名可以使元素在一行显示 -->
+                <div class="layui-form-item layui-inline">
+                    <!-- 
+                        文章的分类以cate_id键发送给服务器，所以这里将name修改为cate_id ，如果发送到服务器的cate_id为空则表示获取所有分类，
+                        所有这里的所有分类的value为空，当选择所有分类的时候就将该value发送给服务器获取所有分类
+                    -->
+                    <select name="cate_id">
+        
+                      </select>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <!-- 
+                    文章的状态以state的键发送给服务器，所以这里将name修改为state 
+                    <option value="12">已发布</option>其中的已发布是显示到页面的，选择其中一个option时，选中的value值为12         
+                    通过value来获取option的value属性值，通过text来获取option的文本值
+                 -->
+                    <select name="state">
+                        <option value="">所有状态</option>
+                        <option value="已发布">已发布</option>
+                        <option value="草稿">草稿</option>
+                      </select>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                </div>
+            </form>
+
+
+            <!-- 文章列表区 -->
+            <table class="layui-table">
+                <colgroup>
+                    <!-- 第一列占满剩下的宽度 第二 第四 第五列占150px宽  第三占180px宽-->
+                    <col/>
+                    <col width="150">
+                    <col width="180">
+                    <col width="150">
+                    <col width="150">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>文章分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 文章分页区域 -->
+    <!-- 该容器用于渲染layui的分页 -->
+    <div id="pageBox"></div>
+
+</body>
+
+<!-- 获取文章 -->
+<script type="text/html" id="testlib">
+    {{each data}}
+    <tr data-id="{{$value.id}}">
+        <td>{{$value.title}}</td>
+        <td>{{$value.cate_name}}</td>
+        <td>{{$value.pub_date | timeFitlter}}</td>
+        <td>{{$value.state}}</td>
+        <td>
+            <button type="button" class="layui-btn layui-btn layui-btn-sm">编辑</button>
+            <button type="button" class="layui-btn layui-btn layui-btn-sm layui-btn-danger remove-table">删除</button>
+        </td>
+    </tr>
+
+    {{/each}}
+
+</script>
+
+
+<!-- 获取文章分类 -->
+<script type="text/html" id="tpl-table">
+    <option value="">所有分类</option>
+    {{each data}}
+    <option value="{{$value.id}}">{{$value.cate_name}}</option>
+    {{/each}}
+</script>
+
+<script src="../assets/lib/jquery.js"></script>
+<script src="../assets/lib/layui/layui.all.js"></script>
+<script src="../assets/js/baseAPI.js"></script>
+<script src="../assets/js/article/文章列表.js"></script>
+
+</html>

@@ -1,0 +1,27 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 10px;
+    background-color: #f0f2f5;
+}
+
+.layui-card-header {
+    /* 为父元素添加flex布局 */
+    display: flex;
+    /* 子元素左右贴边对齐 */
+    justify-content: space-between;
+    /* 子元素上下居中对齐 */
+    align-items: center;
+}
+
+.layui-form .layui-form-item:nth-child(1) {
+    margin-top: 20px;
+}
+
+.layui-form .layui-form-item {
+    width: 90%;
+}

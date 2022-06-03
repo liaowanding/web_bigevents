@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/article/art_cate.css">
+    <script src="../assets/lib/template-web.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>文章类别管理</span>
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" id="btnAdd">添加类别</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <!-- 第一列表格宽度为百分之8的宽度 -->
+                    <col width="8%">
+                    <!-- 第二列表格宽度为百分之21的宽度 -->
+                    <col width="21%">
+                    <!-- 第三列表格宽度为百分之21的宽度 -->
+                    <col width="21%">
+                    <!-- 第四列表格宽度为百分之50的宽度 -->
+                    <col width="50%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>分类名称</th>
+                        <th>分类别名</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<!-- 文章模板 -->
+<script type="text/html" id="test">
+    <!-- 遍历template方法传递过来的对象中的data数组 -->
+    <!-- $value获得当前循环的数据，data数组存储的数据是对象 -->
+    {{each data}}
+    <tr>
+        <td>{{$value.id}}</td>
+        <td>{{$value.cate_name}}</td>
+        <td>{{$value.cate_alias}}</td>
+        <td>
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm btnSet">修改</button>
+            <button type="button" class="layui-btn layui-btn-danger layui-btn-sm btnRemove">删除</button>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<!-- 添加文章类别的弹出层模板 -->
+<script type="text/html" id="textAdd">
+    <!-- input的name值需要与提交参数的键名一样，否则使用jquery的快速获取表单数据并提交给服务器时，会报错 -->
+    <form class="layui-form inputAdd">
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类名称:</label>
+            <div class="layui-input-block">
+                <input type="text" name="cate_name" required lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类别名:</label>
+            <div class="layui-input-block">
+                <input type="text" name="cate_alias" required lay-verify="required" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">确认</button>
+                <button type="reset" class="layui-btn layui-btn-primary" id="cancel">取消</button>
+            </div>
+        </div>
+    </form>
+</script>
+
+
+
+<!-- 修改文章类别的弹出层模板 -->
+<script type="text/html" id="textSet">
+    <!-- input的name值需要与提交参数的键名一样，否则使用jquery的快速获取表单数据并提交给服务器时，会报错 -->
+    <form class="layui-form inputSet" lay-filter="form-edit">
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类名称:</label>
+            <div class="layui-input-block">
+                <input type="text" name="cate_name" required lay-verify="required" placeholder="{{cate_name}}" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类别名:</label>
+            <div class="layui-input-block">
+                <input type="text" name="cate_alias" required lay-verify="required" placeholder="{{cate_alias}} " autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">确认</button>
+                <button type="reset" class="layui-btn layui-btn-primary" id="cancelSet">取消</button>
+            </div>
+        </div>
+    </form>
+</script>
+
+
+
+<script src="../assets/lib/jquery.js"></script>
+<script src="../assets/lib/layui/layui.all.js"></script>
+<script src="../assets/js/baseAPI.js"></script>
+<script src="../assets/js/article/art_cate.js"></script>
+
+</html>
